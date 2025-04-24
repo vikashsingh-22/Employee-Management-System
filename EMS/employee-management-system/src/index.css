@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 59 130 246; /* blue-500 */
+    --secondary: 147 51 234; /* purple-600 */
+    --text-primary: 255 255 255;
+    --text-secondary: 255 255 255 / 0.9;
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --error: 0 84.2% 60.2%;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-[#EEF2FF] text-gray-900;
+  }
+
+  /* Better focus styles for accessibility */
+  [type="text"]:focus,
+  [type="email"]:focus,
+  [type="url"]:focus,
+  [type="password"]:focus,
+  [type="number"]:focus,
+  [type="date"]:focus,
+  [type="datetime-local"]:focus,
+  [type="month"]:focus,
+  [type="search"]:focus,
+  [type="tel"]:focus,
+  [type="time"]:focus,
+  [type="week"]:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    @apply ring-2 ring-white/50 outline-none;
+  }
+
+  /* Override browser autofill styles */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #F8FAFF inset !important;
+    -webkit-text-fill-color: #111827 !important;
+    caret-color: #111827;
+  }
+
+  /* Reset button styles */
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+
+  /* Remove focus ring styles */
+  button:focus,
+  button:focus-visible {
+    outline: none;
+  }
+}
+
+@layer components {
+  /* Navigation */
+  .navbar {
+    @apply fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-lg shadow-sm
+           py-4 px-6 flex justify-between items-center z-50;
+  }
+
+  .nav-brand {
+    @apply text-xl font-bold text-gray-800 hover:text-[#6B8AFD] transition-colors;
+  }
+
+  .nav-links {
+    @apply flex gap-6;
+  }
+
+  .nav-link {
+    @apply text-gray-600 hover:text-[#6B8AFD] transition-colors font-medium;
+  }
+
+  /* Cards */
+  .glass-card {
+    @apply bg-white/95 backdrop-blur-lg rounded-3xl p-8 w-[450px] mx-auto mt-24 shadow-xl;
+  }
+
+  /* Forms */
+  .form-container {
+    @apply space-y-4;
+  }
+
+  .form-group {
+    @apply space-y-1.5;
+  }
+
+  .form-label {
+    @apply text-sm font-medium text-gray-700 block;
+  }
+
+  .form-input {
+    @apply w-full h-12 px-4 bg-[#F8FAFF] rounded-xl text-gray-800 placeholder:text-gray-400
+           border-none focus:outline-none focus:ring-2 focus:ring-blue-500/20
+           transition-all;
+  }
+
+  .password-input-container {
+    @apply relative w-full;
+  }
+
+  .password-toggle {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600
+           cursor-pointer transition-colors;
+  }
+
+  /* Buttons */
+  .submit-btn {
+    @apply w-[180px] h-11 bg-[#6B8AFD] text-white rounded-xl font-medium 
+           transition-all duration-200 flex items-center justify-center
+           hover:bg-blue-600 focus:ring-2 focus:ring-blue-500/20;
+  }
+
+  .submit-btn:disabled {
+    @apply opacity-50 cursor-not-allowed hover:bg-[#6B8AFD];
+  }
+
+  /* Role selection */
+  .role-container {
+    @apply flex gap-4 w-full;
+  }
+
+  .role-btn {
+    @apply flex-1 h-12 rounded-xl text-sm font-medium
+           flex items-center justify-center cursor-pointer
+           transition-colors bg-[#F8FAFF] border-0;
+  }
+
+  .role-btn-selected {
+    @apply bg-[#6B8AFD] text-white;
+  }
+
+  .role-btn-unselected {
+    @apply text-gray-500 hover:bg-[#F0F4FF];
+  }
+
+  /* Typography */
+  .title {
+    @apply text-2xl font-bold text-gray-800 mb-2 text-center;
+  }
+
+  .subtitle {
+    @apply text-gray-600 text-sm mb-6 text-center;
+  }
+
+  .link {
+    @apply text-[#6B8AFD] hover:text-blue-700 transition-colors
+           inline-block font-medium;
+  }
+
+  /* Utility */
+  .error-message {
+    @apply text-red-500 text-xs mt-1;
+  }
+
+  .main-container {
+    @apply min-h-screen flex flex-col;
+  }
+}
